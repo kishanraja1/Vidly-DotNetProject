@@ -4,8 +4,7 @@
     ViewBag.Title = "Random";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>@Model.Movie.Name </h2>
+<h2>Customers</h2>
 
 
 @if (Model.Customers.Count == 0)
@@ -15,12 +14,15 @@
 else
 {
 
-
-<ul>
-
-    @foreach (var customer in Model.Customers)
-    {
-        <li>@customer.Id - @customer.Name</li>
-    }
-</ul>
+<table>
+    <tr>
+        <th>Customer</th>
+    </tr>
+        @foreach (var customer in Model.Customers)
+        {
+         <tr>
+            <td><a href="/customers/details/@customer.Id">@customer.Name</a></td>
+         </tr>
+        }
+</table>
 }
